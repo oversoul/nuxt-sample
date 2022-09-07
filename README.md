@@ -1,4 +1,4 @@
-# Screens
+# Nuxt Sample
 
 Implement a lightweight web application that lets you browse screens.
 
