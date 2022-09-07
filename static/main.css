@@ -1,0 +1,57 @@
+html {
+   font-family: "Inter", sans-serif;
+}
+
+/* fix for heroicons / tailwind stroke size issue. */
+svg { stroke-width: 2; }
+
+path,
+circle,
+ellipse,
+line,
+polygon,
+polyline,
+rect {
+    stroke-width: inherit;
+}
+
+.home-enter-active, .home-leave-active {
+  transition: opacity .5s;
+}
+
+.home-enter, .home-leave-active {
+  opacity: 0;
+}
+
+
+
+
+.intro-enter-active, .intro-leave-active { transition-duration: 1600ms; }
+
+.intro-enter-active::before, .intro-leave-active::before, .intro-enter-active::after, .intro-leave-active::after {
+   top: 0;
+   left: 0;
+   z-index: 2;
+   content: "";
+   height: 50%;
+   width: 100%;
+   display: block;
+   position: fixed;
+   transition-property: opacity, transform;
+   transition-timing-function: ease-in-out;
+}
+
+.intro-enter-active::before,
+.intro-leave-active::before,
+.intro-enter-active::after,
+.intro-leave-active::after { background-color: rgb(31, 41, 55); }
+
+.intro-enter-active::after, .intro-leave-active::after { top: 50%; }
+.intro-leave::before, .intro-leave::after { transform: scaleX(0); }
+.intro-leave-active::before { transition-duration: 800ms; }
+.intro-leave-active::after { transition-duration: 500ms; transition-delay: 300ms; }
+.intro-leave-to::before, .intro-leave-to::after { transform: scale(1); transform-origin: left; }
+.intro-enter::before, .intro-enter::after { transform: scaleX(1); }
+.intro-enter-active::before { transition-duration: 800ms; }
+.intro-enter-active::after { transition-delay: 300ms; transition-duration: 500ms; }
+.intro-enter-to::before, .intro-enter-to::after { transform: scaleX(0); transform-origin: right; }
